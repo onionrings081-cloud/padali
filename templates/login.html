@@ -1,0 +1,29 @@
+{# Log in page - script: static/js/login.js #}
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="/static/img/favicon.png"><title>Padali | Log in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem("padali-theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<link rel="stylesheet" href="/static/css/switch.css"><link rel="stylesheet" href="/static/css/style.css"></head>
+<body class="auth-page">
+<div class="auth">
+  <label class="switch auth-theme" title="Light / dark mode"><input type="checkbox" data-theme-toggle aria-label="Toggle dark mode"><span class="slider"><span class="star star_1"></span><span class="star star_2"></span><span class="star star_3"></span><svg viewBox="0 0 16 16" class="cloud_1 cloud" aria-hidden="true"><path transform="matrix(.77976 0 0 .78395-299.99-418.63)" fill="#fff" d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"></path></svg></span></label>
+  <div class="auth-wrap">
+    <a class="brand big" href="/"><img class="mark" src="/static/img/logo-mark.png" alt="">Padali</a>
+    <div class="card auth-card">
+      <div class="tabs"><a class="tab on" href="/login">Log in</a><a class="tab" href="/register">Sign up</a></div>
+      <form id="loginForm" class="form" autocomplete="off">
+        <div class="form-head"><h2>Welcome back</h2><p>Log in to start ordering.</p></div>
+        <label>Username<input name="u" required autocomplete="off"></label>
+        <label>Password<input name="p" type="password" required autocomplete="new-password"></label>
+        <div class="msg err" id="loginMsg" hidden></div>
+        <button class="btn block lg">Log in</button>
+        <p class="hint">New here? <a href="/register">Create an account</a></p>
+      </form>
+    </div>
+  </div>
+</div>
+<div id="toast" class="toast" hidden></div>
+<script src="/static/js/common.js"></script><script src="/static/js/theme.js"></script><script src="/static/js/login.js"></script>
+</body></html>

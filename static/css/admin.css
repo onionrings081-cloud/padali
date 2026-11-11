@@ -1,0 +1,88 @@
+/* Admin pages only. Builds on style.css (tokens, cards, buttons). Clean, no animation. */
+:root{--warn:#B7791F}
+:root[data-theme="dark"]{--warn:#F0B64A}
+.role-tag{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ac);padding:2px 7px;border-radius:99px;box-shadow:var(--in);margin-left:6px;vertical-align:middle}
+.live{font-size:12px;font-weight:700;color:var(--ok);padding:7px 14px;border-radius:99px;background:var(--card);box-shadow:var(--in)}
+.live::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);margin-right:8px}
+.pad{padding:24px 26px}
+.sec-sm{font-size:16px;margin-bottom:16px}
+.head-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px}
+.head-row .sec{margin:30px 0 0}
+.note{color:var(--mu);font-size:14px;margin-bottom:14px}
+.kp{grid-template-columns:repeat(3,1fr);margin-bottom:24px}
+.grid2{display:grid;grid-template-columns:1.6fr 1fr;gap:22px;margin-bottom:22px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+/* bar chart */
+.bars{display:grid;grid-template-columns:repeat(7,1fr);gap:12px;height:230px}
+.col{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:0}
+.col small{color:var(--mu);font-size:11px;font-weight:600;white-space:nowrap}
+.well{flex:1;width:100%;max-width:48px;display:flex;align-items:flex-end;border-radius:12px;box-shadow:var(--in);padding:4px}
+.well i{display:block;width:100%;border-radius:8px;background:var(--ac)}
+/* distribution meters */
+.dist{display:grid;grid-template-columns:96px 1fr 30px;gap:12px;align-items:center;padding:7px 0;font-size:14px}
+.dist b{text-align:right}
+.meter{height:12px;border-radius:99px;box-shadow:var(--in);padding:2px}
+.meter i{display:block;height:100%;border-radius:99px;background:var(--ac)}
+.rank{display:grid;grid-template-columns:34px 1fr auto;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.rank:last-child{border:0}.rank small{display:block;color:var(--mu)}
+.no{display:grid;place-items:center;width:30px;height:30px;border-radius:10px;box-shadow:var(--in);color:var(--ac);font-weight:700;font-size:13px}
+/* tables */
+.tbl-wrap{overflow-x:auto;padding:6px 10px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;color:var(--mu);font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:14px 14px}
+.tbl td{padding:14px;border-top:1px solid var(--line);vertical-align:top}
+.tbl small{display:block;color:var(--mu);font-size:12.5px;margin-top:2px}
+.tbl tr.off td{opacity:.55}
+.tbl select{width:auto;padding:9px 12px;font-size:13px;font-weight:600;cursor:pointer}
+.tbl .empty{box-shadow:none}
+.pill-st{display:inline-block;padding:5px 12px;border-radius:99px;font-size:12px;font-weight:700;box-shadow:var(--in)}
+.pill-st.s0{color:var(--ac)}.pill-st.s1{color:var(--warn)}.pill-st.s2{color:var(--ok)}.pill-st.sx{color:var(--er)}
+.dn{display:flex;align-items:center;gap:12px}
+.dn .em,.av-sm{display:grid;place-items:center;width:40px;height:40px;border-radius:12px;box-shadow:var(--in);color:var(--ac);font-weight:700;flex:none}
+.dn .em .i{width:20px;height:20px}.av-sm{border-radius:50%}
+.acts{white-space:nowrap}.acts .icon-btn{display:inline-grid;width:38px;height:38px;margin-left:8px}
+.icon-btn.danger:hover{color:var(--er)}
+.dish-form{margin-bottom:22px}
+.actions.left{justify-content:flex-start;margin-top:4px}
+/* on/off toggle (flat, no motion) */
+.tgl{display:inline-block;position:relative;width:46px;height:26px}
+.tgl input{opacity:0;width:0;height:0;position:absolute}
+.tgl span{position:absolute;inset:0;border-radius:99px;box-shadow:var(--in);cursor:pointer}
+.tgl span::before{content:"";position:absolute;top:4px;left:4px;width:18px;height:18px;border-radius:50%;background:var(--mu)}
+.tgl input:checked+span::before{left:24px;background:var(--ok)}
+.tgl input:focus-visible+span{outline:2px solid var(--ac);outline-offset:3px}
+@media(max-width:1100px){.grid2,.grid3{grid-template-columns:1fr}}
+@media(max-width:900px){.kp{grid-template-columns:1fr 1fr}.live{display:none}.bars{gap:6px}}
+.tbl tr.off td:nth-child(4),.tbl tr.off td.acts{opacity:1}
+.dn .em{position:relative;overflow:hidden}.dn .ph{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tbl td small .sp{color:var(--ac)}
+.grid2.eq{grid-template-columns:1.4fr 1fr}
+.dist.wide{grid-template-columns:150px 1fr 70px}.dist.wide span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tbl th{letter-spacing:.07em}
+.tbl tr:hover td{background:rgba(127,140,170,.06)}
+.stat .ico{background:var(--thumb)}
+
+/* ===== v6: feedback page, avatars, calmer tables ===== */
+.av-sm img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.tbl-wrap{padding:8px 12px}
+.tbl tr:hover td{background:rgba(120,135,170,.08)}
+.bignum{font-size:42px;font-weight:700;color:var(--ac);line-height:1;margin:4px 0 6px}
+.sec-sm{display:flex;align-items:center;gap:8px}.sec-sm .i{color:var(--ac)}.sec-sm small{font-weight:500;font-size:12.5px}
+.heat-c{margin:22px 0}
+.heat{display:grid;gap:4px;overflow-x:auto;min-width:0}
+.hrow{display:grid;grid-template-columns:38px repeat(24,minmax(14px,1fr));gap:4px;align-items:center;min-width:560px}
+.hrow>span{font-size:12px;font-weight:700;color:var(--mu)}.hh small{font-size:10.5px;color:var(--mu);text-align:center}
+.hrow i{position:relative;display:block;height:22px;border-radius:6px;box-shadow:var(--in)}
+.hrow i::after{content:"";position:absolute;inset:0;border-radius:6px;background:var(--ac);opacity:var(--a)}
+.fblist{padding:8px 22px}
+.fbrow{display:grid;grid-template-columns:200px 1fr auto;gap:18px;align-items:start;padding:18px 0;border-top:1px solid var(--line)}
+.fbrow:first-child{border:0}
+.fbmain{display:grid;gap:8px;min-width:0}.fbmain p{font-size:14.5px}
+.fbt{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rpl{display:grid;grid-template-columns:1fr auto;gap:10px}.rpl input{padding:10px 14px;font-size:13.5px}
+@media(max-width:900px){.fbrow{grid-template-columns:1fr auto}.fbrow .who{grid-column:1/-1}}
+
+/* return / refund requests in Admin > Orders */
+.retadm{display:grid;gap:6px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line)}
+.retadm .pill-st{justify-self:start}
+.racts{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}

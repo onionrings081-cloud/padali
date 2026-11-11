@@ -1,0 +1,9 @@
+{# Admin Orders page - script: static/js/admin_orders.js #}
+{% extends "_admin_layout.html" %}
+{% set title = "Orders" %}
+{% set active = "orders" %}
+{% block content %}
+      <div class="head-row"><p class="note">Every order, updated every 10 seconds.</p><a class="btn ghost" href="/api/admin/export.csv" download>Export CSV</a></div>
+      <section class="view" id="v-orders"></section>
+{% endblock %}
+{% block scripts %}<script src="/static/js/admin_orders.js"></script>{% endblock %}

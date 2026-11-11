@@ -1,0 +1,33 @@
+{# Shared shell for every logged-in page (sidebar, header, cart drawer). Each page file extends this. #}
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="/static/img/favicon.png"><title>Padali | {{ title }}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem("padali-theme");if(t==="dark"||(!t&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script>
+<link rel="stylesheet" href="/static/css/switch.css"><link rel="stylesheet" href="/static/css/style.css"></head>
+<body class="app-page">
+{% set nav=[('home','Overview','house','/app'),('menu','Menu','utensils','/menu'),('favs','Favorites','heart','/favorites'),('planner','Planner','sparkles','/planner'),('sell','My Store','store','/sell'),('orders','Orders','receipt-text','/orders'),('profile','Profile','user','/profile')] %}
+<div id="app" class="shell">
+  <aside class="side"><div class="side-in">
+    <a class="brand" href="/app"><img class="mark" src="/static/img/logo-mark.png" alt=""><em>Padali</em></a>
+    {% for key,label,icon,href in nav %}<a class="nv{{ ' on' if key==active else '' }}" href="{{ href }}"><span><svg class="i" aria-hidden="true"><use href="/static/icons.svg#i-{{ icon }}"/></svg></span><em>{{ label }}</em></a>
+    {% endfor %}<button class="nv out" id="logout" type="button"><span><svg class="i" aria-hidden="true"><use href="/static/icons.svg#i-log-out"/></svg></span><em>Log out</em></button>
+  </div></aside>
+  <div class="content">
+    <header class="bar"><h1>{{ title }}</h1>
+      <div class="bar-r"><label class="switch" title="Light / dark mode"><input type="checkbox" data-theme-toggle aria-label="Toggle dark mode"><span class="slider"><span class="star star_1"></span><span class="star star_2"></span><span class="star star_3"></span><svg viewBox="0 0 16 16" class="cloud_1 cloud" aria-hidden="true"><path transform="matrix(.77976 0 0 .78395-299.99-418.63)" fill="#fff" d="m391.84 540.91c-.421-.329-.949-.524-1.523-.524-1.351 0-2.451 1.084-2.485 2.435-1.395.526-2.388 1.88-2.388 3.466 0 1.874 1.385 3.423 3.182 3.667v.034h12.73v-.006c1.775-.104 3.182-1.584 3.182-3.395 0-1.747-1.309-3.186-2.994-3.379.007-.106.011-.214.011-.322 0-2.707-2.271-4.901-5.072-4.901-2.073 0-3.856 1.202-4.643 2.925"></path></svg></span></label><button class="icon-btn" data-cart aria-label="Open cart"><svg class="i" aria-hidden="true"><use href="/static/icons.svg#i-shopping-cart"/></svg><span id="badge" class="badge" hidden>0</span></button><a class="avatar" id="avatar" href="/profile" aria-label="Profile"></a></div></header>
+    <main>
+{% block content %}{% endblock %}
+    </main>
+  </div>
+</div>
+<div id="drawer" class="drawer"><div class="ov" data-close></div>
+  <aside class="dp"><header><h3>Your cart</h3><button class="icon-btn" data-close aria-label="Close"><svg class="i" aria-hidden="true"><use href="/static/icons.svg#i-x"/></svg></button></header>
+    <div id="cartBody" class="cbody"></div>
+    <footer><p id="cartHint" class="cart-hint" hidden></p><div class="sum"><span>Subtotal</span><b id="cartTotal"></b></div><button class="btn block lg" id="cartGo" data-checkout>Go to checkout</button></footer></aside></div>
+<div id="modal" class="modal" hidden><div class="ov" data-mclose></div><div class="mbox card" role="dialog" aria-modal="true"><button class="icon-btn mx" data-mclose aria-label="Close"><svg class="i" aria-hidden="true"><use href="/static/icons.svg#i-x"/></svg></button><div id="mbody"></div></div></div>
+<div id="toast" class="toast" hidden></div>
+<script src="/static/js/common.js"></script><script src="/static/js/theme.js"></script><script src="/static/js/pmap.js"></script><script src="/static/js/shell.js"></script>
+{% block scripts %}{% endblock %}
+</body></html>

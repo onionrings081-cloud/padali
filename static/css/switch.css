@@ -1,0 +1,13 @@
+/* Theme switch (based on Uiverse.io by JustCode14). Checked = light mode, unchecked = dark mode. No animation: it simply snaps. */
+.switch{font-size:17px;position:relative;display:inline-block;width:4em;height:2.2em;border-radius:30px;box-shadow:inset 2px 2px 5px rgba(0,0,0,.25);flex:none}
+.switch input{opacity:0;width:0;height:0}
+.slider{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background-color:#272D40;border-radius:30px;overflow:hidden}
+.slider:before{position:absolute;content:"";height:1.2em;width:1.2em;border-radius:20px;left:.5em;bottom:.5em;box-shadow:inset 8px -4px 0 0 #D9DDE9}
+.switch input:checked+.slider{background-color:#8197C4}
+.switch input:checked+.slider:before{transform:translateX(1.8em);box-shadow:inset 15px -4px 0 15px #D9B968}
+.switch input:focus-visible+.slider{outline:2px solid #4F8CEE;outline-offset:3px}
+.star{background-color:#fff;border-radius:50%;position:absolute;width:5px;height:5px}
+.star_1{left:2.5em;top:.5em}.star_2{left:2.2em;top:1.2em}.star_3{left:3em;top:.9em}
+.switch input:checked~.slider .star{opacity:0}
+.cloud{width:3.5em;position:absolute;bottom:-1.4em;left:-1.1em;opacity:0}
+.switch input:checked~.slider .cloud{opacity:1}

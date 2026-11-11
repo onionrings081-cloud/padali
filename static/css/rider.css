@@ -1,0 +1,21 @@
+/* rider.css - the rider portal (/rider). Same calm neumorphism as the rest of Padali, no animation. */
+.kp.k4{grid-template-columns:repeat(4,1fr)}
+.dlist{display:grid;gap:18px}
+.dcard{padding:22px 24px;display:grid;gap:16px}
+.dhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.stepbar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.stepbar span{text-align:center;padding:8px 6px;border-radius:99px;font-size:12.5px;font-weight:700;color:var(--mu);box-shadow:var(--in)}
+.stepbar span.on{color:var(--on-ac);background:var(--ac);box-shadow:none}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px 26px}
+.kv small{display:block;color:var(--mu);font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:2px}
+.kv span{display:block;font-weight:600;word-break:break-word;margin-bottom:6px}.kv span small{display:inline;text-transform:none;letter-spacing:0;font-size:12.5px;font-weight:500}
+.kv a,.dcard a{color:var(--ac);font-weight:700}
+.dlist .it{padding:8px 0;border-top:1px solid var(--line);font-weight:600}.dlist .it:first-child{border:0}
+.dcard .dlist{gap:0}
+.collect{display:inline-block;padding:4px 12px;border-radius:99px;font-weight:700;color:var(--am);box-shadow:var(--in)}
+.dcard .btn{justify-self:start}
+.av-lg{width:92px;height:92px;font-size:34px}
+@media(max-width:1100px){.kp.k4{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.dgrid{grid-template-columns:1fr}.kp.k4{grid-template-columns:1fr}}
+.grid21{display:grid;grid-template-columns:2fr 1fr;gap:22px;margin-bottom:8px}
+@media(max-width:1100px){.grid21{grid-template-columns:1fr}}

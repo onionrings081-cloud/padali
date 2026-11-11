@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Padali</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script>try{if(localStorage.getItem("padali-theme")==="dark")document.documentElement.setAttribute("data-theme","dark")}catch(e){}</script><link rel="stylesheet" href="/static/css/style.css"></head>
+<body>
+<section id="auth" class="auth">
+  <button class="icon-btn theme-btn auth-theme" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="/static/icons.svg#i-moon"/></svg></button>
+  <div class="auth-wrap">
+    <a class="brand" href="/"><span class="mark">P</span>Padali</a>
+    <div class="card auth-card">
+      <div class="tabs"><button class="tab on" data-tab="login">Log in</button><button class="tab" data-tab="register">Sign up</button></div>
+      <form id="loginForm" class="form" autocomplete="off">
+        <div class="form-head"><h2>Welcome back</h2><p>Log in to start ordering.</p></div>
+        <label>Username<input name="u" required autocomplete="off"></label>
+        <label>Password<input name="p" type="password" required autocomplete="new-password"></label>
+        <div class="msg err" id="loginMsg" hidden></div>
+        <button class="btn block lg">Log in</button>
+        <p class="hint">New here? <a href="#" data-tab="register">Create an account</a></p>
+      </form>
+      <form id="regForm" class="form" autocomplete="off" hidden>
+        <div class="form-head"><h2>Create your account</h2><p>It only takes a minute.</p></div>
+        <label>Full name<input name="name" required autocomplete="off"></label>
+        <div class="row2"><label>Email<input name="email" type="email" required autocomplete="off"></label><label>Phone<input name="phone" inputmode="tel" required autocomplete="off"></label></div>
+        <label>Address<input name="addr" required autocomplete="off"></label>
+        <div class="row2"><label>Username<input name="u" required minlength="3" autocomplete="off"></label><label>Password<input name="p" type="password" required minlength="6" autocomplete="new-password"></label></div>
+        <div class="msg err" id="regMsg" hidden></div>
+        <button class="btn block lg">Create account</button>
+        <p class="hint">Already registered? <a href="#" data-tab="login">Log in</a></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div id="app" class="shell" hidden>
+  <aside class="side">
+    <div class="brand"><span class="mark">P</span><em>Padali</em></div>
+    <button class="nv on" data-view="home"><span><svg class="i" aria-hidden="true"><use href="/static/icons.svg#i-house"/></svg></span><em>Overview</em></button>
+    <button class="nv" data-view="menu"><span><svg class="i" aria-hidden="true"><use href="/static/icons.svg#i-utensils"/></svg></span><em>Menu</em></button>
+    <button class="nv" data-view="favs"><span><svg class="i" aria-hidden="true"><use href="/static/icons.svg#i-heart"/></svg></span><em>Favorites</em></button>
+    <button class="nv" data-view="orders"><span><svg class="i" aria-hidden="true"><use href="/static/icons.svg#i-receipt-text"/></svg></span><em>Orders</em></button>
+    <button class="nv" data-view="profile"><span><svg class="i" aria-hidden="true"><use href="/static/icons.svg#i-user"/></svg></span><em>Profile</em></button>
+    <button class="nv out" id="logout"><span><svg class="i" aria-hidden="true"><use href="/static/icons.svg#i-log-out"/></svg></span><em>Log out</em></button>
+  </aside>
+  <div class="content">
+    <header class="bar"><h1 id="title">Overview</h1>
+      <div class="bar-r"><button class="icon-btn theme-btn" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false"><svg class="i" aria-hidden="true"><use href="/static/icons.svg#i-moon"/></svg></button><button class="icon-btn" data-cart aria-label="Open cart"><svg class="i" aria-hidden="true"><use href="/static/icons.svg#i-shopping-cart"/></svg><span id="badge" class="badge" hidden>0</span></button><span class="avatar" id="avatar"></span></div></header>
+    <main>
+      <section class="view" id="v-home"></section><section class="view" id="v-menu" hidden></section>
+      <section class="view" id="v-favs" hidden></section><section class="view" id="v-orders" hidden></section>
+      <section class="view" id="v-profile" hidden></section><section class="view" id="v-checkout" hidden></section>
+      <section class="view" id="v-receipt" hidden></section>
+    </main>
+  </div>
+</div>
+<div id="drawer" class="drawer"><div class="ov" data-close></div>
+  <aside class="dp"><header><h3>Your cart</h3><button class="icon-btn" data-close aria-label="Close"><svg class="i" aria-hidden="true"><use href="/static/icons.svg#i-x"/></svg></button></header>
+    <div id="cartBody" class="cbody"></div>
+    <footer><div class="sum"><span>Subtotal</span><b id="cartTotal"></b></div><button class="btn block lg" id="cartGo" data-checkout>Go to checkout</button></footer></aside></div>
+<div id="toast" class="toast" hidden></div>
+<script src="/static/js/theme.js"></script><script src="/static/js/app.js"></script></body></html>
