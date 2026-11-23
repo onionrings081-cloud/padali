@@ -22,7 +22,7 @@ ol,ul{list-style:none;padding:0}
 .btn.sm{padding:9px 16px;font-size:14px}.btn.lg{padding:15px 28px;font-size:16px}
 
 /* page background photo: whole image, cropped to the scrollable page height */
-body::before{content:"";position:absolute;inset:0;z-index:-2;background:url(/static/img/landing-bg.jpg) center top/cover no-repeat}
+body::before{content:"";position:absolute;inset:0;z-index:-2;background:url(/static/img/landing-bg.webp) center top/cover no-repeat}
 body::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(150,164,194,.78) 0%,rgba(150,164,194,.5) 40%,rgba(150,164,194,.12) 75%)}
 .top{position:relative}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:26px;padding-bottom:26px}
@@ -76,7 +76,7 @@ main section.wrap{padding-top:60px;padding-bottom:60px}
 /* dark mode: dark photo + dark palette */
 .nav-cta{align-items:center}
 :root[data-theme="dark"]{--bg:#16213A;--d:#08101F;--l:#243759;--ink:#E6EEFF;--mu:#A9BCE3;--ac:#4F8CEE;--ac2:#7BA9FF;--page:#061220;color-scheme:dark}
-[data-theme="dark"] body::before{background-image:url(/static/img/landing-bg-dark.jpg)}
+[data-theme="dark"] body::before{background-image:url(/static/img/landing-bg-dark.webp)}
 [data-theme="dark"] body::after{background:linear-gradient(90deg,rgba(6,18,32,.82) 0%,rgba(6,18,32,.5) 38%,rgba(6,18,32,0) 70%)}
 [data-theme="dark"] .feat,[data-theme="dark"] .dish{background:rgba(22,33,58,.92)}
 [data-theme="dark"] .cta{background:rgba(22,33,58,.94)}

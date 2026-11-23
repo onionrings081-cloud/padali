@@ -9,6 +9,13 @@ import photos
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "change-this-secret-in-production")
 app.config["MAX_CONTENT_LENGTH"] = 2 * 1024 * 1024        # profile photos arrive as small JPEGs (the browser shrinks them first)
+@app.after_request
+def _cache_static_images(resp):
+    # background / logo / food photos never change under the same name: let the browser and Vercel's CDN keep them
+    if request.path.startswith("/static/img/") and resp.status_code == 200:
+        resp.headers["Cache-Control"] = "public, max-age=2592000, s-maxage=2592000, immutable"
+    return resp
+
 HERE = os.path.dirname(os.path.abspath(__file__))
 DB = os.environ.get("PADALI_DB", os.path.join(HERE, "oms.db"))
 AVATAR_DIR = os.path.join(HERE, "static", "uploads", "avatars")   # profile pictures chosen from the phone / computer gallery

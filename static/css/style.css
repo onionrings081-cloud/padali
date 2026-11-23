@@ -39,10 +39,10 @@ img.mark{width:44px;height:44px;object-fit:contain;filter:drop-shadow(0 2px 4px 
 /* page photo background: the picture itself, sharp, only dimmed a little so it never glares */
 .app-page,.auth-page{position:relative;isolation:isolate}
 .app-page::before,.auth-page::before{content:"";position:fixed;inset:0;z-index:-2;background:center/cover no-repeat}
-.app-page::before{background-image:url(/static/img/dashboard-bg-light.jpg)}
-.auth-page::before{background-image:url(/static/img/auth-bg-light.jpg)}
-[data-theme="dark"] .app-page::before{background-image:url(/static/img/dashboard-bg-dark.jpg)}
-[data-theme="dark"] .auth-page::before{background-image:url(/static/img/auth-bg-dark.jpg)}
+.app-page::before{background-image:url(/static/img/dashboard-bg-light.webp)}
+.auth-page::before{background-image:url(/static/img/auth-bg-light.webp)}
+[data-theme="dark"] .app-page::before{background-image:url(/static/img/dashboard-bg-dark.webp)}
+[data-theme="dark"] .auth-page::before{background-image:url(/static/img/auth-bg-dark.webp)}
 .app-page::after,.auth-page::after{content:"";position:fixed;inset:0;z-index:-1;background:var(--veil);pointer-events:none}
 
 /* 3. controls ---------------------------------------------------------- */
